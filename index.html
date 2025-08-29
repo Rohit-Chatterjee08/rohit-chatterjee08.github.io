@@ -3,1141 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohit Chatterjee - AI Developer & Automation Engineer</title>
-    <style>
-        /* CSS styles remain unchanged */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInUp 1s ease-out;
-        }
-        
-        .hero-content .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.3s both;
-        }
-        
-        .hero-content .location {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            animation: slideInUp 1s ease-out 0.5s both;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: slideInUp 1s ease-out 0.7s both;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.3);
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .cta-button:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .cta-button.primary {
-            background: rgba(255,255,255,0.9);
-            color: #667eea;
-        }
-        
-        .cta-button.primary:hover {
-            background: white;
-            color: #764ba2;
-        }
-        
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Navigation */
-        nav {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-        
-        .nav-content {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .nav-content a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .nav-content a:hover {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        /* Sections */
-        section {
-            padding: 4rem 0;
-            position: relative;
-        }
-        
-        section:nth-child(even) {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-        
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-        
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 5px solid white;
-        }
-        
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        
-        .profile-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            z-index: 1;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .profile-img:hover {
-            transform: scale(1.05) rotate(5deg);
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .about-text .highlight {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 600;
-        }
-        
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .skills-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #667eea;
-            text-align: center;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        .skill-card h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .skill-tags {
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.4;
-        }
-        
-        /* Experience Section */
-        .experience-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transform: translateX(-50%);
-        }
-        
-        .experience-item {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            width: calc(50% - 30px);
-            transition: all 0.3s ease;
-        }
-        
-        .experience-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .experience-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .experience-item:nth-child(even) {
-            left: calc(50% + 30px);
-        }
-        
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #667eea;
-            border-radius: 50%;
-            top: 30px;
-        }
-        
-        .experience-item:nth-child(odd)::before {
-            right: -40px;
-        }
-        
-        .experience-item:nth-child(even)::before {
-            left: -40px;
-        }
-        
-        .experience-date {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .experience-title {
-            font-size: 1.3rem;
-            color: #333;
-            margin: 0.5rem 0;
-        }
-        
-        .experience-company {
-            color: #764ba2;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .experience-description {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .project-img {
-            height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.1);
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.3; }
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .project-tag {
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .project-link {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .project-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        /* Certifications Section */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .certification-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .certification-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-        }
-        
-        .certification-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .cert-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        .cert-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-        
-        .cert-issuer {
-            font-size: 1rem;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .cert-date {
-            font-size: 0.9rem;
-            color: #999;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cert-grade {
-            font-size: 0.9rem;
-            color: #28a745;
-            font-weight: 600;
-            background: rgba(40, 167, 69, 0.1);
-            padding: 4px 8px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-        
-        .cert-code {
-            font-size: 0.8rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-        
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 auto 1rem;
-        }
-        
-        .contact-item h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-item p {
-            color: #667eea;
-            font-weight: 500;
-        }
-        
-        .contact-item a {
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-item a:hover {
-            color: #764ba2;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: #667eea;
-            transform: translateY(-3px);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .experience-timeline::before {
-                left: 30px;
-            }
-            
-            .experience-item {
-                width: calc(100% - 80px);
-                left: 60px !important;
-            }
-            
-            .experience-item::before {
-                left: -40px !important;
-            }
-            
-            .nav-content {
-                gap: 1rem;
-            }
-            
-            .profile-img {
-                width: 200px;
-                height: 200px;
-                font-size: 4rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Loading animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out forwards;
-        }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* AI Theme Elements */
-        .ai-particle {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: rgba(102, 126, 234, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: aiFloat 6s linear infinite;
-            z-index: 1;
-        }
-        
-        @keyframes aiFloat {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    <title>Rohit Chatterjee - AI/ML Engineer | Portfolio</title>
+    <meta name="description" content="AI/ML Engineer specializing in Generative AI, Python, and Backend Development. 4+ years experience building intelligent solutions.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Rohit Chatterjee</h1>
-                <p class="subtitle">AI Automation & Backend Engineering Specialist</p>
-                <p class="location">📍 Kolkata, India | 4+ Years Experience</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="cta-button primary">Get In Touch</a>
-                    <a href="https://github.com/Rohit-Chatterjee08" class="cta-button" target="_blank">View GitHub</a>
-                    <a href="https://huggingface.co/spaces/chatterjeerohit08/" class="cta-button" target="_blank">HuggingFace</a>
-                </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">RC</span>
+                <span class="nav-name">Rohit Chatterjee</span>
             </div>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <div class="nav-content">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#contact">Contact</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
         </div>
     </nav>
 
-    <section id="about">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="container">
-            <h2>About Me</h2>
+            <div class="hero-content">
+      <!-- REPLACE THIS ENTIRE SECTION: -->
+<div class="hero-avatar">
+    <img src="rohit-photo.jpg" alt="Rohit Chatterjee - AI/ML Engineer" class="hero-photo">
+</div>
+                <h1 class="hero-name">Rohit Chatterjee</h1>
+                <p class="hero-title">AI/ML Engineer</p>
+                <p class="hero-tagline">AI Automation & Backend Engineering Specialist</p>
+                <div class="hero-stats">
+                    <span class="stat-item">4+ Years Experience</span>
+                    <span class="stat-divider">•</span>
+                    <span class="stat-item">Kolkata, India</span>
+                    <span class="stat-divider">•</span>
+                    <span class="stat-item">Available Immediately</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn--primary">View Projects</a>
+                    <a href="#contact" class="btn btn--outline">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p class="section-subtitle">Passionate AI Engineer building intelligent solutions</p>
+            </div>
             <div class="about-content">
-                <div class="profile-img">
-                    <img src="rohit.jpg" alt="Rohit Chatterjee" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div style="display:none; width:100%; height:100%; background: linear-gradient(135deg, #667eea, #764ba2); border-radius:50%; align-items:center; justify-content:center; font-size:4rem; color:white;">🤖</div>
-                </div>
                 <div class="about-text">
-                    <p>Welcome! I'm a passionate <span class="highlight">AI Automation and Backend Engineering Specialist</span> with 4+ years of experience in building intelligent solutions that reduce toil and accelerate business value.</p>
-                    <br>
-                    <p>I specialize in <span class="highlight">Generative AI, Prompt Engineering, and Large Language Models</span>, with expertise in Python, cloud infrastructure, and workflow automation. My work spans across AI-driven diagnostics, multi-agent systems, and scalable backend solutions.</p>
-                    <br>
-                    <p>Currently pursuing MCA from Amity University Online, I'm passionate about <span class="highlight">Agentic AI systems, RAG implementation, and Multi-Modal AI</span> for real-world impact. I believe in working smart through scripting, thorough analysis, and continuous upskilling.</p>
-                    <br>
-                    <p><strong>Available immediately</strong> for exciting AI/ML projects and full-time opportunities!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h2>Core Competencies</h2>
-            <div class="skills-container">
-                <div class="skills-category">
-                    <h3>🤖 AI/ML & Automation</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <div class="skill-icon">🧠</div>
-                            <h4>Generative AI</h4>
-                            <div class="skill-tags">LangChain, HuggingFace, OpenAI API, RAG</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-icon">💬</div>
-                            <h4>Prompt Engineering</h4>
-                            <div class="skill-tags">Advanced Prompting, Multi-Agent Systems</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-icon">🔬</div>
-                            <h4>ML/DL Frameworks</h4>
-                            <div class="skill-tags">TensorFlow, Keras, XGBoost, Scikit-learn</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-icon">⚡</div>
-                            <h4>Workflow Automation</h4>
-                            <div class="skill-tags">n8n, Make, Zapier, Integrately</div>
-                        </div>
+                    <p>Welcome! I'm a passionate <strong>AI Automation and Backend Engineering Specialist</strong> with <strong>4+ years of experience</strong> in building intelligent solutions that reduce toil and accelerate business value.</p>
+                    
+                    <p>I specialize in <strong>Generative AI, Prompt Engineering, and Large Language Models</strong>, with expertise in Python, cloud infrastructure, and workflow automation. My work spans across AI-driven diagnostics, multi-agent systems, and scalable backend solutions.</p>
+                    
+                    <p>Currently pursuing <strong>MCA from Amity University Online</strong>, I'm passionate about Agentic AI systems, RAG implementation, and Multi-Modal AI for real-world impact. I believe in working smart through scripting, thorough analysis, and continuous upskilling.</p>
+                    
+                    <div class="availability-badge">
+                        <span class="status status--success">Available immediately for exciting AI/ML projects and full-time opportunities!</span>
                     </div>
                 </div>
-                <div class="skills-category">
-                    <h3>💻 Development & Cloud</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <div class="skill-icon">🐍</div>
-                            <h4>Python Development</h4>
-                            <div class="skill-tags">Pandas, NumPy, FastAPI, Streamlit</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-icon">☁️</div>
-                            <h4>Cloud & DevOps</h4>
-                            <div class="skill-tags">AWS EC2, Docker, Kubernetes, CI/CD</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-icon">🔗</div>
-                            <h4>Backend APIs</h4>
-                            <div class="skill-tags">REST APIs, Spring Boot, Microservices</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-icon">🗄️</div>
-                            <h4>Databases</h4>
-                            <div class="skill-tags">MySQL, MariaDB, Pinecone Vector DB</div>
-                        </div>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <h3>Current Focus</h3>
+                        <ul>
+                            <li>Agentic AI Systems</li>
+                            <li>RAG Implementation</li>
+                            <li>Multi-Modal AI</li>
+                            <li>Workflow Automation</li>
+                        </ul>
+                    </div>
+                    <div class="highlight-item">
+                        <h3>Education</h3>
+                        <p><strong>MCA</strong><br>Amity University Online<br><em>In Progress</em></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience">
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
         <div class="container">
-            <h2>Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-date">Mar 2019 – Mar 2020</div>
-                    <div class="experience-title">Graduate Apprentice Engineer – Civil</div>
-                    <div class="experience-company">Airports Authority of India, Delhi</div>
-                    <div class="experience-description">
-                        Performed QA inspections and data analytics for airport infrastructure projects.
-                    </div>
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p class="section-subtitle">Expertise across multiple AI/ML domains</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>Generative AI & LLMs</h3>
+                    <p>Advanced experience with Large Language Models and generative AI systems</p>
                 </div>
-                
-                <div class="experience-item">
-                    <div class="experience-date">Feb 2022 – Apr 2022</div>
-                    <div class="experience-title">Client Operations Executive</div>
-                    <div class="experience-company">Flipkart (Aegis BPO), Kolkata</div>
-                    <div class="experience-description">
-                        Delivered 95%+ CSAT through real-time customer support and escalation handling in a high-volume environment.
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python & Backend Development</h3>
+                    <p>Full-stack development with FastAPI, Django, and modern Python frameworks</p>
                 </div>
-                <div class="experience-item">
-                    <div class="experience-date">May 2022 – Mar 2023</div>
-                    <div class="experience-title">Executive – Technical Service Desk</div>
-                    <div class="experience-company">MSR IT Solution, Kolkata</div>
-                    <div class="experience-description">
-                        Resolved L1 tickets via automated Google Apps Script workflows, cutting resolution time by 35%. Managed CRM migrations and integrated ServiceNow workflows.
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">☁️</div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Google Cloud, AWS, Docker, Kubernetes for scalable deployments</p>
                 </div>
-                <div class="experience-item">
-                    <div class="experience-date">Mar 2023 – Mar 2024</div>
-                    <div class="experience-title">Team Lead – Shift Incharge</div>
-                    <div class="experience-company">MSR IT Solution, Kolkata</div>
-                    <div class="experience-description">
-                        Migrated backend systems to AI-powered dashboards and mentored 5 engineers in prompt engineering, accelerating releases by 50%.
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🧠</div>
+                    <h3>Machine Learning & Deep Learning</h3>
+                    <p>TensorFlow, PyTorch, Scikit-learn for advanced ML solutions</p>
                 </div>
-                <div class="experience-item">
-                    <div class="experience-date">Mar 2024 – May 2025</div>
-                    <div class="experience-title">L2 Technical Support Engineer</div>
-                    <div class="experience-company">MSR IT Solution, Kolkata</div>
-                    <div class="experience-description">
-                        Automated CRM/CMS UI and integrated Salesforce with Zoho Desk using AI workflows. Deployed proactive monitoring reducing critical escalations by 40%.
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Full-Stack Development</h3>
+                    <p>End-to-end application development with modern frameworks</p>
                 </div>
-                <div class="experience-item">
-                    <div class="experience-date">May 2025 – Jun 2025</div>
-                    <div class="experience-title">Assistant Manager – L2 Technical Service Desk</div>
-                    <div class="experience-company">MSR IT Solution, Kolkata</div>
-                    <div class="experience-description">
-                        Led AWS EC2 server configuration and built Generative AI workflows for automated diagnostics, achieving 99%+ SLA compliance. Automated Docker container health checks, reducing manual intervention by 80%.
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐋</div>
+                    <h3>Docker & Kubernetes</h3>
+                    <p>Containerization and orchestration for production deployments</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>FastAPI & Streamlit</h3>
+                    <p>High-performance APIs and interactive data applications</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">👁️</div>
+                    <h3>Computer Vision & NLP</h3>
+                    <p>Advanced AI for image processing and natural language understanding</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
         <div class="container">
-            <h2>Key AI Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">🏥</div>
-                    <div class="project-content">
-                        <h3>AI Health Diagnosis System</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">TensorFlow</span>
-                            <span class="project-tag">Pandas</span>
-                            <span class="project-tag">Healthcare AI</span>
-                        </div>
-                        <p>Designed an AI model for disease prediction from structured patient datasets with feature engineering and model evaluation pipelines. Aligned with healthcare AI market growing at 45% annually.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Rohit-Chatterjee08" class="project-link" target="_blank">View Code</a>
-                        </div>
-                    </div>
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p class="section-subtitle">Production-ready AI applications with live demos</p>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-header">
+                <h2>Achievements</h2>
+                <p class="section-subtitle">Measurable impact in AI/ML development</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-number" data-target="12">0</div>
+                    <div class="achievement-label">Live HuggingFace Spaces with Interactive Demos</div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">🔍</div>
-                    <div class="project-content">
-                        <h3>Advanced Fraud Detection Platform</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">XGBoost</span>
-                            <span class="project-tag">SHAP</span>
-                            <span class="project-tag">MLFlow</span>
-                        </div>
-                        <p>Developed real-time transaction fraud detection system with explainable AI. Integrated SHAP for model interpretability and MLFlow for experiment tracking, targeting fintech sector demands.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Rohit-Chatterjee08" class="project-link" target="_blank">View Code</a>
-                        </div>
-                    </div>
+                <div class="achievement-card">
+                    <div class="achievement-number" data-target="20">0</div>
+                    <div class="achievement-label">Production-Ready GitHub Repositories</div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">🤖</div>
-                    <div class="project-content">
-                        <h3>Multi-Modal RAG Chatbot</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">LangChain</span>
-                            <span class="project-tag">HuggingFace</span>
-                            <span class="project-tag">Pinecone</span>
-                            <span class="project-tag">RAG</span>
-                        </div>
-                        <p>Built retrieval-augmented chatbot handling text, documents, and images. Leveraged Pinecone for vector search and HuggingFace models, forming foundation for agentic AI applications.</p>
-                        <div class="project-links">
-                            <a href="https://huggingface.co/spaces/chatterjeerohit08/" class="project-link" target="_blank">Try Demo</a>
-                            <a href="https://github.com/Rohit-Chatterjee08" class="project-link" target="_blank">View Code</a>
-                        </div>
-                    </div>
+                <div class="achievement-card">
+                    <div class="achievement-number" data-target="5">0</div>
+                    <div class="achievement-label">AI Domains: Finance, Agriculture, Healthcare, NLP, Computer Vision</div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">📄</div>
-                    <div class="project-content">
-                        <h3>Receipt Processing & Invoice Automation</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">OCR</span>
-                            <span class="project-tag">Pandas</span>
-                            <span class="project-tag">AI Validation</span>
-                        </div>
-                        <p>Automated extraction and classification of expense receipts into structured formats with AI-driven data validation for accounting workflows.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Rohit-Chatterjee08" class="project-link" target="_blank">View Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">📧</div>
-                    <div class="project-content">
-                        <h3>Email Classification Engine</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Scikit-learn</span>
-                            <span class="project-tag">NLP</span>
-                            <span class="project-tag">CRM Integration</span>
-                        </div>
-                        <p>Trained supervised models for automated email sorting and prioritization, extended to integrate with CRM ticketing systems for real-time workflow triggers.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Rohit-Chatterjee08" class="project-link" target="_blank">View Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">💼</div>
-                    <div class="project-content">
-                        <h3>Job Application Automation Suite</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Selenium</span>
-                            <span class="project-tag">OpenAI API</span>
-                            <span class="project-tag">Automation</span>
-                        </div>
-                        <p>AI-assisted job application tool with auto-fill, resume parsing, and AI-generated cover letters. Integrated with LinkedIn, Indeed, and Naukri APIs for automated submissions.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Rohit-Chatterjee08" class="project-link" target="_blank">View Code</a>
-                        </div>
-                    </div>
+                <div class="achievement-card">
+                    <div class="achievement-number" data-target="4">0</div>
+                    <div class="achievement-label">Years of AI/ML Development Experience</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="certifications">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h2>Certifications & Achievements</h2>
-            <div class="certifications-grid">
-                <div class="certification-card">
-                    <div class="cert-icon">🏆</div>
-                    <div class="cert-title">FREE TensorFlow Keras Bootcamp</div>
-                    <div class="cert-issuer">OpenCV University</div>
-                    <div class="cert-date">July 27, 2025</div>
-                    <div class="cert-grade">Grade: 100%</div>
-                    <div class="cert-code">ID: d71bf98cd5d4443393a83622a1e7f15e</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">🎯</div>
-                    <div class="cert-title">Prompt Design in Vertex AI</div>
-                    <div class="cert-issuer">Google Cloud</div>
-                    <div class="cert-date">2025</div>
-                    <div class="cert-code">Skill Badge - Introductory Level</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">⚡</div>
-                    <div class="cert-title">Prompt Engineering</div>
-                    <div class="cert-issuer">Great Learning</div>
-                    <div class="cert-date">2025</div>
-                    <div class="cert-code">Verify: mygreatlearning.com/certificate/HWGSOAVB</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">🤖</div>
-                    <div class="cert-title">Generative AI for Beginners</div>
-                    <div class="cert-issuer">Simplilearn</div>
-                    <div class="cert-date">July 24, 2025</div>
-                    <div class="cert-code">Certificate Code: 8681548</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">☁️</div>
-                    <div class="cert-title">Azure Fundamentals</div>
-                    <div class="cert-issuer">Microsoft (Simplilearn)</div>
-                    <div class="cert-date">July 18, 2025</div>
-                    <div class="cert-code">Certificate Code: 8644963</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">🎓</div>
-                    <div class="cert-title">AI for Beginners</div>
-                    <div class="cert-issuer">HP LIFE</div>
-                    <div class="cert-date">July 24, 2025</div>
-                    <div class="cert-code">Serial: aa34eec0-7e28-4f18-b416-fd5d34e7fdc4</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">📊</div>
-                    <div class="cert-title">Data Science & Analytics</div>
-                    <div class="cert-issuer">HP LIFE</div>
-                    <div class="cert-date">July 24, 2025</div>
-                    <div class="cert-code">Serial: bcffb14b-4286-4203-962d-5c1c7bfc5b14</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">💼</div>
-                    <div class="cert-title">Introduction to Digital Business Skills</div>
-                    <div class="cert-issuer">HP LIFE</div>
-                    <div class="cert-date">July 24, 2025</div>
-                    <div class="cert-code">Serial: 5e115cc3-3bc0-4d65-84bc-25cce93851c2</div>
-                </div>
-                <div class="certification-card">
-                    <div class="cert-icon">📋</div>
-                    <div class="cert-title">Foundations of Project Management</div>
-                    <div class="cert-issuer">Coursera</div>
-                    <div class="cert-date">2022</div>
-                    <div class="cert-code">Professional Certificate</div>
-                </div>
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p class="section-subtitle">Available for AI/ML projects and opportunities</p>
             </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
             <div class="contact-content">
-                <h2>Let's Build Something Amazing</h2>
-                <p>Ready to collaborate on AI-driven solutions? I'm available immediately for exciting projects and opportunities!</p>
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">📧</div>
                         <div>
                             <h3>Email</h3>
-                            <p><a href="mailto:chatterjeerohit08@gmail.com">chatterjeerohit08@gmail.com</a></p>
+                            <a href="mailto:chatterjeerohit08@gmail.com">chatterjeerohit08@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📱</div>
                         <div>
                             <h3>Phone</h3>
-                            <p><a href="tel:+917003877102">+91 70038 77102</a></p>
+                            <a href="tel:+917003877102">+91 70038 77102</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">💼</div>
                         <div>
                             <h3>LinkedIn</h3>
-                            <p><a href="https://linkedin.com/in/rohit-chatterjee-457a09120" target="_blank">rohit-chatterjee-457a09120</a></p>
+                            <a href="https://linkedin.com/in/rohit-chatterjee-457a09120" target="_blank" rel="noopener noreferrer">rohit-chatterjee-457a09120</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🐙</div>
                         <div>
                             <h3>GitHub</h3>
-                            <p><a href="https://github.com/Rohit-Chatterjee08" target="_blank">Rohit-Chatterjee08</a></p>
+                            <a href="https://github.com/Rohit-Chatterjee08" target="_blank" rel="noopener noreferrer">Rohit-Chatterjee08</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🤗</div>
                         <div>
                             <h3>HuggingFace</h3>
-                            <p><a href="https://huggingface.co/spaces/chatterjeerohit08/" target="_blank">chatterjeerohit08</a></p>
+                            <a href="https://huggingface.co/spaces/chatterjeerohit08/" target="_blank" rel="noopener noreferrer">chatterjeerohit08</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div>
                             <h3>Location</h3>
-                            <p>Kolkata, India</p>
+                            <span>Kolkata, India</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <div class="card contact-card">
+                        <div class="card__body">
+                            <h3>Ready to collaborate?</h3>
+                            <p>I'm available immediately for exciting AI/ML projects and full-time opportunities. Let's build something amazing together!</p>
+                            <div class="contact-actions">
+                                <a href="mailto:chatterjeerohit08@gmail.com" class="btn btn--primary">Send Email</a>
+                                <a href="https://linkedin.com/in/rohit-chatterjee-457a09120" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Connect on LinkedIn</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1145,122 +257,28 @@
         </div>
     </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-links">
-                <a href="https://github.com/Rohit-Chatterjee08" target="_blank" title="GitHub">🐙</a>
-                <a href="https://linkedin.com/in/rohit-chatterjee-457a09120" target="_blank" title="LinkedIn">💼</a>
-                <a href="https://huggingface.co/spaces/chatterjeerohit08/" target="_blank" title="HuggingFace">🤗</a>
-                <a href="mailto:chatterjeerohit08@gmail.com" title="Email">📧</a>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Rohit Chatterjee. All rights reserved.</p>
+                    <p class="footer-availability">Available for AI/ML opportunities</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/Rohit-Chatterjee08" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/in/rohit-chatterjee-457a09120" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://huggingface.co/spaces/chatterjeerohit08/" target="_blank" rel="noopener noreferrer">HuggingFace</a>
+                </div>
             </div>
-            <p>&copy; 2025 Rohit Chatterjee. All rights reserved.</p>
-            <p>AI Automation & Backend Engineering Specialist | Available Immediately</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <span>↑</span>
+    </button>
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections and cards
-        document.querySelectorAll('section, .skill-card, .project-card, .experience-item, .certification-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add parallax effect to header
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const header = document.querySelector('header');
-            if (header) {
-                header.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-        });
-
-        // Dynamic typing effect for subtitle
-        const subtitle = document.querySelector('.subtitle');
-        const text = subtitle.textContent;
-        subtitle.textContent = '';
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                subtitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-
-        // Start typing effect after a delay
-        setTimeout(typeWriter, 1200);
-
-        // Create AI particles
-        function createAIParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'ai-particle';
-            particle.style.left = Math.random() * window.innerWidth + 'px';
-            particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            particle.style.animationDelay = Math.random() * 2 + 's';
-            document.body.appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 8000);
-        }
-
-        // Create particles periodically
-        setInterval(createAIParticle, 2000);
-
-        // Add hover effect to skill cards
-        document.querySelectorAll('.skill-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1))';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'white';
-            });
-        });
-
-        // Add click tracking for external links
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('External link clicked:', this.href);
-            });
-        });
-
-        // Add loading effect
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-            document.body.style.transition = 'opacity 0.5s ease-in';
-        });
-
-        // Preload optimization
-        document.body.style.opacity = '0';
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
