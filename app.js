@@ -3,12 +3,21 @@
 // Project data
 const projectsData = [
   {
+    name: "Sales Insight Engine - AI-Powered Data Analytics Dashboard",
+    description: "Autonomous FMCG Data Analysis with Multi-Agent AI System using CrewAI, featuring AI Feature Selection, Data Classification, and Business Analyst agents",
+    tech: ["Python", "FastAPI", "CrewAI", "Mistral LLM", "Chart.js", "Pandas"],
+    github: "https://github.com/Rohit-Chatterjee08/sales-insight-engine",
+    demo: "https://sales-insight-engine-47gu.onrender.com/",
+    status: "✅ Running",
+    category: "Agentic AI"
+  },
+  {
     name: "Agentic AI Product Recommendation System",
     description: "Full-Stack Agentic AI Application with MCP server orchestration, integrating OpenAI, HuggingFace, and Gemini APIs",
     tech: ["TypeScript", "Node.js", "MongoDB Atlas", "Next.js", "TailwindCSS"],
     github: "https://github.com/Rohit-Chatterjee08/product-recommendation-agentic",
     status: "Latest Project",
-    category: "Full-Stack AI"
+    category: "Agentic AI"
   },
   {
     name: "Annam AI - Agricultural Intelligence System", 
