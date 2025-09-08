@@ -266,7 +266,7 @@ function initializeScrollAnimations() {
 
   // Observe elements for animation
   const animatedElements = document.querySelectorAll(
-    '.skill-card, .project-card, .achievement-card, .contact-item, .about-content, .hero-content'
+    '.skill-card, .project-card, .achievement-card, .contact-item, .policy-card, .about-content, .hero-content'
   );
   
   animatedElements.forEach(el => {
